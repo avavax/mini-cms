@@ -8,7 +8,7 @@ class Application
 {
     private $router;
 
-    public function __construct(\App\Router $router)
+    public function __construct(Router $router)
     {
         $this->router = $router;
     }

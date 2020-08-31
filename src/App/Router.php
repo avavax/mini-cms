@@ -20,7 +20,7 @@ class Router
 
         foreach ($this->routes as $route => $callback) {
             if ($currentUri == $route) {
-                return $callback();
+                return call_user_func($callback);
             }
         }
     }
@@ -28,9 +28,8 @@ class Router
     private function prepareCallback($callback)
     {
         if (is_string($callback) && strpos($callback, '@')) {
-            return str_replace('@', '::', $callback);
-        } else {
-            return $callback;
+            $callback = str_replace('@', '::', $callback);
         }
+        return $callback;
     }
 }
