@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App;
 
-use App\Interfaces\IRenderable,
+use App\Interfaces\RenderableInterface,
     App\View\View;
 
 class Application
@@ -26,7 +26,7 @@ class Application
             exit;
         }
 
-        if (is_subclass_of($callback, IRenderable::class)) {
+        if ($callback instanceof RenderableInterface) {
             $callback->render();
         } else {
             echo $callback;
