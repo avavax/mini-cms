@@ -4,8 +4,6 @@ declare(strict_types = 1);
 
 namespace App;
 
-use App\Exception\NotFoundException;
-
 class Router
 {
     private $routes = [];
@@ -25,8 +23,6 @@ class Router
                 return call_user_func($callback);
             }
         }
-
-        throw new NotFoundException('Страница удалена или отсуствует', 404);
     }
 
     private function prepareCallback($callback)

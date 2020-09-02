@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App;
 
 use App\Interfaces\RenderableInterface,
+    App\Exception\NotFoundException,
     App\View\View;
 
 class Application
@@ -24,7 +25,7 @@ class Application
             if ($callback instanceof RenderableInterface) {
                 $callback->render();
             } else {
-                echo $callback;
+                throw new NotFoundException('Страница удалена или отсуствует', 404);
             }
 
         } catch (\Exception $e) {
