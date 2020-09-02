@@ -18,18 +18,31 @@ class Application
 
     public function run()
     {
-        $callback = $this->router->dispatch();
+        try {
+            $callback = $this->router->dispatch();
 
-        if ($callback === null) {
-            header($_SERVER['SERVER_PROTOCOL']. '  404 Not Found');
-            (new View('404', ['title' => 'Error 404']))->render();
-            exit;
+            if ($callback instanceof RenderableInterface) {
+                $callback->render();
+            } else {
+                echo $callback;
+            }
+
+        } catch (\Exception $e) {
+            $this->renderException($e);
         }
+    }
 
-        if ($callback instanceof RenderableInterface) {
-            $callback->render();
+    private function renderException(\Exception $e)
+    {
+        if ($e instanceof RenderableInterface) {
+            $e->render();
         } else {
-            echo $callback;
+            $params = [
+                'title' => 'Error page',
+                'message' => $e->getMessage(),
+                'error' => $e->getCode() ?: 500,
+            ];
+            (new View('errors', $params))->render();
         }
     }
 }
