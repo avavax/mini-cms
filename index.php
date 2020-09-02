@@ -11,12 +11,8 @@ require_once 'bootstrap.php';
 
 $router = new Router();
 
-$router->get('/', function() {
-    return new View('index', ['title' => 'Index Page']);
-});
-$router->get('/about', function() {
-    return new View('about', ['title' => 'About Company']);
-});
+$router->get('/',      Controller::class . '@index');
+$router->get('/about', Controller::class . '@about');
 
 $application = new Application($router);
 
