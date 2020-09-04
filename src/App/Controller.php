@@ -8,12 +8,12 @@ use App\View\View;
 
 class Controller
 {
-    public static function index(): View
+    public function index(): View
     {
         return new View('index', ['title' => 'Index Page']);
     }
 
-    public static function about(): View
+    public function about(): View
     {
         return new View('about', ['title' => 'About Company']);
     }
