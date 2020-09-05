@@ -11,8 +11,8 @@ require_once 'bootstrap.php';
 
 $router = new Router();
 
-$router->get('/',      Controller::class . '@index');
-$router->get('/about', Controller::class . '@about');
+$router->get('/',       [new Controller(), 'index']);
+$router->get('/about',  [new Controller(), 'about']);
 
 $application = new Application($router);
 
