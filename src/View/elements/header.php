@@ -22,6 +22,12 @@
                             <li class="nav-item <?= $title == 'About Company' ? 'active' : '' ?>">
                                 <a class="nav-link" href="/about">About</a>
                             </li>
+                            <li class="nav-item <?= $title == 'Books' ? 'active' : '' ?>">
+                                <a class="nav-link" href="/books">Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/test1/items/test2/100/">Test</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
