@@ -12,14 +12,12 @@ class Router
 
     public function get(string $path, $callback)
     {
-        $route = new Route($path, $callback);
-        $this->routes[] = $route;
+        $this->routes[] = new Route($path, $callback);
     }
 
-    public function post(string $route, $callback)
+    public function post(string $path, $callback)
     {
-        $route = new Route($path, $callback, 'POST');
-        $this->routes[] = $route;
+        $this->routes[] = new Route($path, $callback, 'POST');
     }
 
     public function dispatch()

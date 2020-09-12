@@ -10,7 +10,7 @@ trait TRenderException
 {
     private function showException(\Exception $e)
     {
-        $errorCode = $e->getCode() ?: 500;
+        $errorCode = (int) ($e->getCode() ?: 500);
         http_response_code($errorCode);
 
         $params = [
@@ -18,6 +18,8 @@ trait TRenderException
             'message' => $e->getMessage(),
             'error' => $errorCode,
         ];
-        (new View('errors', $params))->render();
+
+        $page = $errorCode == '404' ? 'e404' : 'errors';
+        (new View($page, $params))->render();
     }
 }
