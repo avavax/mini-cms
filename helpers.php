@@ -31,3 +31,8 @@ function check_email(string $email): bool
 {
     return (bool) preg_match('/.+@.+\..+/i', $email);
 }
+
+function removeJs(string $content): string
+{
+    return preg_replace('/<\s*\bscript\b[^>]*>(.*?)<\s*\/\s*script\s*>/is', '', $content);
+}

@@ -12,9 +12,10 @@
 						<h3>Аватар</h3>
 						<div class="author-content">
 							<img src="<?= ASSETS_DIR ?>img/avatars/<?= $data['img'] ?? 'anonimus.jpg' ?>" alt="avatar">
-							<p>Вы можете загрузить картинку расширением png, jpg, размером не более 3 Мб. В случае отсутствия загруженного аватара используется нейтральное изображение.</p><br>
-							<form action="POST">
-								<input type="file"><br><br>
+							<p>Вы можете загрузить картинку c расширением png, jpg, jpeg, bmp, gif, размером не более 2 Мб. В случае отсутствия загруженного аватара используется нейтральное изображение.</p><br>
+							<form action="/cabinet/imagechange" method="POST" enctype="multipart/form-data" id="image-change">
+								<input type="file" name="avatar"><br><br>
+								<p class="message-img-load"></p>
 								<input type="submit" value="Загрузить изображение" name="changeUserdata">
 							</form>
 						</div>
@@ -46,20 +47,24 @@
 						<h3>Информация о пользователе</h3>
 						<div class="category-list">
 							<form action="/cabinet" method="POST">
+							<input type="hidden" name="id" value="<?= $data['id'] ?? '' ?>">
 							<ul>
 								<li>
 									<p class="user-data">Имя пользователя</p>
-									<input type="text" value="<?= $data['name'] ?>" name="name">
+									<input type="text" value="<?= $data['name'] ?>" name="name" required>
 									<p class="user-data-error"><?= $errors['name'] ?? '' ?></p>
 								</li>
 								<li>
 									<p class="user-data">E-mail</p>
-									<input type="email" value="<?= $data['email'] ?>" name="email">
+									<input type="email" value="<?= $data['email'] ?>" name="email" required>
 									<p class="user-data-error"><?= $errors['email'] ?? '' ?></p>
 								</li>
 								<li>
 									<p class="user-data">О себе (не обязательное поле)</p>
 									<textarea name="about"><?= $data['about'] ?? '' ?></textarea>
+								</li>
+								<li>
+									<p>Для того, чтобы оставить прежний пароль, не заполняйте эти поля!</p>
 								</li>
 								<li>
 									<p class="user-data">Пароль</p>
@@ -82,7 +87,7 @@
 						<div class="tag-list">
 							<ul>
 								<li>
-									<a href="/cabinet/unsubscribe">
+									<a href="/cabinet/unsubscribe" id="cabinet-subscribe">
 									<?= $data['subscribe'] == 1 ? 'Оформлена' : 'Отсутствует' ?>
 									</a>
 								</li>

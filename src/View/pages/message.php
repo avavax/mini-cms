@@ -8,6 +8,9 @@
 					<div class="error-text">
 						<h2><?= $message ?></h2>
 						<a href="/">На главную</a>
+						<?php if (isset($user) && ($user->status == 'admin' || $user->status == 'manager')): ?>
+							<a href="/admin">В админ-панель</a>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

@@ -2,32 +2,28 @@
 
 	<!-- =========Blog Image Area=========== -->
 	<div class="blog-home-page">
-		<div class="blog-hero-home">
-			<video autoplay="autoplay" loop="loo" muted="muted" class="hidden-xs" id="video_background" poster="" data-vid_mp4="<source src='<?= ASSETS_DIR ?>video/video_earth.mp4'; type='video/mp4';>">
+		<div class="blog-hero-home" style="background: url(<?= ASSETS_DIR ?>img/video-bg.jpg);">
+			<video autoplay="autoplay" loop="loo" muted="muted" class="hidden-xs" id="video_background" data-vid_mp4="<source src='<?= ASSETS_DIR ?>video/video_earth.mp4'; type='video/mp4';>">
 				<source src="<?= ASSETS_DIR ?>video/video_earth.mp4" type="video/mp4">
 			</video>
 			<div class="blog-home-text">
-				<h1>Только интересные статьи из мира IT</h1>
-				<h2>Не забудьте подписаться, чтобы быть в курсе всех новостей!</h2>
+				<h1><?= $settings['title'] ?? '' ?></h1>
+				<h2><?= $settings['subtitle'] ?? '' ?></h2>
 			</div>
 		</div>
 
 		<div class="container">
 			<div class="main-blog-list">
-			<!--<div class="row">
-				<div class="col-xl-12">
-					<div class="section-heading-3">
-						<h3>Статьи блога</h3>
-					</div>
-				</div>
-			</div>-->
+
 				<div class="row">
 
 					<?php foreach($previews as $preview): ?>
 					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
 						<div class="home-single-blog">
 							<div class="s-blog-image">
-								<img src="<?= ASSETS_DIR ?>img/blog/<?= $preview['img']; ?>" alt="<?= $preview['excerpt']; ?>">
+								<?php if ($preview['img']): ?>
+									<img src="<?= ASSETS_DIR ?>img/blog/<?= $preview['img']; ?>" alt="<?= $preview['img']; ?>">
+								<?php endif; ?>
 								<div class="blog-post-date">
 									<span><?= $preview['date']; ?></span>
 								</div>

@@ -32,6 +32,11 @@
 										<input type="password" placeholder="Повторите пароль" name="passwordRepeat" value="<?= $data['passwordRepeat'] ?? '' ?>" required>
 										<p><?= $errors['passwordRepeat'] ?? '' ?></p>
 									</div>
+									<div class="col-md-12 col-sm-12 mt-md-4 text-center">
+										<input type="checkbox" name="agreement" id="agreement" value="yes">
+										<label for="agreement">Я ознакомился с условиями использования сайта и подтверждаю своё согласие</label>
+										<p><?= $errors['agreement'] ?? '' ?></p>
+									</div>
 								</div>
 								<div class="send-btn">
 									<input type="submit" value="Войти" id="formsend">

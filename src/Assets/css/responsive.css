@@ -349,6 +349,11 @@
 
 @media only screen and (min-width: 575px) and (max-width: 767px) {
 
+	.blog-hero-home {
+		display: block;
+		height: 120px;
+	}
+
 	.search-icon-area {
 		right: 15%;
 		top: -67px;
@@ -536,6 +541,15 @@
 
 }
 
+@media only screen and (max-width: 767px) {
+	.blog-hero-home video,
+	.blog-hero-home .blog-home-text {
+		display: none;
+	}
+	.blog-hero-home {
+		height: 60px;
+	}
 
-/* Responsive CSS END
-/*----------------------------------------*/
+}
+
+

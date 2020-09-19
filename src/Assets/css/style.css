@@ -126,7 +126,7 @@ Website: www.enventer.com
 
 html,
 body {
-	height: 100%;
+	/*height: 100%;*/
 	font-family: 'Nunito', sans-serif;
 	margin: 0px;
 	padding: 0px
@@ -245,11 +245,9 @@ ul {
 
 .section-heading-1 h4 {
 	font-size: 23px;
-	text-transform: capitalize;
 }
 
 .section-heading-1 h3 {
-	text-transform: capitalize;
 	font-weight: 700;
 	margin-bottom: 35px;
 	position: relative;
@@ -281,11 +279,9 @@ ul {
 
 .section-heading-2 h4 {
 	font-size: 23px;
-	text-transform: capitalize;
 }
 
 .section-heading-2 h3 {
-	text-transform: capitalize;
 	font-weight: 700;
 	margin-bottom: 35px;
 	position: relative;
@@ -314,11 +310,9 @@ ul {
 
 .section-heading-3 h4 {
 	font-size: 23px;
-	text-transform: capitalize;
 }
 
 .section-heading-3 h3 {
-	text-transform: capitalize;
 	font-weight: 700;
 	margin-bottom: 35px;
 	position: relative;
@@ -346,7 +340,6 @@ ul {
 	padding: 10px 30px;
 	font-weight: 700;
 	font-size: 18px;
-	text-transform: capitalize;
 	margin-top: 25px;
 	display: inline-block;
 }
@@ -389,7 +382,7 @@ ul {
 	position: absolute;
 	left: 0;
 	top: 0;
-	z-index: 9;
+	z-index: 1000;
 }
 
 .logo-area img {
@@ -411,7 +404,6 @@ ul {
 .main-menu ul li a {
 	color: #fff;
 	display: inline-block;
-	text-transform: capitalize;
 	font-size: 18px;
 	line-height: 1;
 	position: relative;
@@ -420,8 +412,13 @@ ul {
 	transition: .5s
 }
 
+.main-menu ul li a:link {
+	background-color: transparent !important;
+}
+
 .main-menu ul li a:hover {
 	color: #505262;
+	text-decoration: none;
 }
 
 .main-menu ul li a:before {
@@ -476,7 +473,7 @@ ul {
 	-webkit-transition: .7s;
 	transition: .7s;
 	mix-blend-mode: multiply;
-	z-index: 9
+	z-index: 1000
 }
 
 .main-menu ul li a.current {
@@ -584,7 +581,7 @@ ul.dropdown li a:after {
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 99;
+	z-index: 1000;
 	background: linear-gradient(270deg, #00B0E7 0%, #75F389 100%);
 	-webkit-box-shadow: 0px 0px 4px #016946;
 	box-shadow: 0px 0px 50px #60636242;
@@ -619,7 +616,7 @@ ul.dropdown li a:after {
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 99;
+	z-index: 1000;
 	background: linear-gradient(270deg, #00B0E7 0%, #75F389 100%);
 	-webkit-box-shadow: 0px 0px 4px #016946;
 	box-shadow: 0px 0px 50px #60636242;
@@ -826,7 +823,6 @@ ul.dropdown li a:after {
 }
 
 .intro-text h1 {
-	text-transform: capitalize;
 	font-size: 50px;
 	line-height: 65px;
 	color: #3e3d3d;
@@ -855,7 +851,6 @@ ul.dropdown li a:after {
 	border-radius: 50px;
 	text-decoration: none;
 	color: #fff;
-	text-transform: capitalize;
 	display: inline-block;
 	padding: 15px 40px;
 	-webkit-transition: .5s;
@@ -1270,7 +1265,6 @@ ul.dropdown li a:after {
 }
 
 .testi-slider-text h5 {
-	text-transform: capitalize;
 	font-size: 18px
 }
 
@@ -1528,7 +1522,6 @@ ul.dropdown li a:after {
 	width: 130px;
 	height: 40px;
 	font-weight: 700;
-	text-transform: capitalize;
 	line-height: 40px;
 	text-align: center;
 	transition: .5s
@@ -1546,7 +1539,6 @@ ul.dropdown li a:after {
 .s-blog-content h4 {
 	font-weight: 700;
 	color: #323657;
-	text-transform: capitalize;
 }
 
 .s-blog-content a {
@@ -1569,7 +1561,6 @@ ul.dropdown li a:after {
 .big-footer {
 	background-color: #151723;
 	padding: 120px 0;
-	background-image: url('img/./f-pattern.png');
 }
 
 #footer-fixed {
@@ -1616,7 +1607,6 @@ ul.dropdown li a:after {
 	color: #fff;
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
 	margin-top: 5px
 }
 
@@ -1631,7 +1621,6 @@ ul.dropdown li a:after {
 .footer-content ul li a {
 	color: #efefef;
 	font-size: 16px;
-	text-transform: capitalize;
 	line-height: 30px;
 }
 
@@ -1697,9 +1686,10 @@ footer p {
 /*13.1 Blog Banner*/
 
 .blog-hero-banner {
-	background-image: url(img/blog/blog-bg.jpg);
+	/*background-image: url(img/blog/blog-bg.jpg);*/
+	background-color: MediumSlateBlue;
 	width: 100%;
-	height: 50vh;
+	height: 40vh;
 	background-position: center;
 	background-size: cover;
 	position: relative;
@@ -1718,7 +1708,7 @@ footer p {
 .blog-hero-banner-text {
 	position: absolute;
 	left: 0;
-	top: 55%;
+	top: 60%;
 	right: 0;
 	text-align: center;
 	-webkit-transform: translateY(-50%);
@@ -1727,7 +1717,6 @@ footer p {
 
 .blog-hero-banner h1 {
 	color: #fff;
-	text-transform: capitalize;
 	font-weight: 700;
 	font-size: 40px;
 }
@@ -1740,38 +1729,46 @@ footer p {
 	background-color: #fff
 }
 
+.blog-body p {
+	margin-bottom: 10px;
+}
+
 .blog-area {
 	padding: 120px 0;
 }
 
 /*13.2 Blog Side*/
+
+.center-article {
+	padding: 40px 20px 0 0;
+	margin-bottom: -40px;
+}
+
 .left-side {
-	padding: 60px 20px 20px 0px
+	padding: 20px 20px 5px 0px;
 }
 
 .right-side {
-	padding: 60px 0px 20px 20px
+	padding: 20px 0px 5px 20px;
 }
 
 .left-side-2 {
-	padding: 60px 20px 20px 0px
+	padding: 20px 20px 20px 0px;
 }
 
 .right-side-2 {
-	padding: 60px 0px 20px 20px
+	padding: 20px 0px 20px 20px;
 }
 
 .blog-post-heading h1 {
 	font-size: 37px;
 	color: #363636;
-	text-transform: capitalize;
 	margin-top: 0;
 	font-weight: 700
 }
 
 .blog-post-heading span {
 	font-weight: 700;
-	text-transform: capitalize;
 }
 
 /*13.3 Blog Search*/
@@ -1820,7 +1817,6 @@ footer p {
 .blog-share h4 {
 	font-size: 21px;
 	font-weight: 600;
-	text-transform: capitalize;
 	margin-bottom: 15px
 }
 
@@ -1846,14 +1842,10 @@ footer p {
 }
 
 /*13.5 Blog Author*/
-.author-profile {
-	margin-top: 40px
-}
 
 .author-profile h3 {
 	font-size: 18px;
 	font-weight: 600;
-	text-transform: capitalize;
 	margin: 0;
 	padding-bottom: 10px;
 	color: #363636;
@@ -1874,12 +1866,10 @@ footer p {
 	margin-bottom: 0;
 	font-size: 18px;
 	font-weight: 600;
-	text-transform: capitalize;
 	color: #363636;
 }
 
 .author-profile span {
-	text-transform: capitalize;
 	font-size: 16px;
 }
 
@@ -1897,7 +1887,6 @@ footer p {
 .main-category h3 {
 	font-size: 18px;
 	font-weight: 600;
-	text-transform: capitalize;
 	margin: 0;
 	padding-bottom: 10px;
 	color: #363636;
@@ -1928,7 +1917,6 @@ footer p {
 .category-list ul li a {
 	color: #363636;
 	font-size: 15px;
-	text-transform: capitalize;
 }
 
 .category-list ul li a:hover {
@@ -1947,7 +1935,6 @@ footer p {
 .main-tags h3 {
 	font-size: 18px;
 	font-weight: 600;
-	text-transform: capitalize;
 	margin: 0;
 	padding-bottom: 10px;
 	color: #363636;
@@ -1970,7 +1957,6 @@ footer p {
 	color: #363636;
 	display: inline-block;
 	border: 1px solid #ebebeb;
-	text-transform: capitalize;
 }
 
 .tag-list ul li a:hover {
@@ -1992,7 +1978,6 @@ footer p {
 	font-size: 21px;
 	margin: 30px 0;
 	font-weight: 600;
-	text-transform: capitalize;
 }
 
 .image-box {
@@ -2002,7 +1987,6 @@ footer p {
 
 .image-box img {
 	width: 80px;
-	height: 80px
 }
 
 .text-box {
@@ -2021,7 +2005,6 @@ footer p {
 	color: #212121;
 	padding: 2px 11px;
 	display: inline-block;
-	text-transform: capitalize;
 	font-size: 13px;
 	margin-top: 10px;
 }
@@ -2045,7 +2028,6 @@ footer p {
 	color: #212121;
 	padding: 2px 9px;
 	display: inline-block;
-	text-transform: capitalize;
 	font-size: 13px;
 	margin-top: 10px;
 }
@@ -2073,7 +2055,6 @@ footer p {
 	padding: 10px 30px;
 	font-weight: 700;
 	font-size: 18px;
-	text-transform: capitalize;
 	margin-top: 25px;
 	display: inline-block;
 	border: none;
@@ -2086,7 +2067,6 @@ footer p {
 
 /*=========== 14. Blog List Area CSS =============*/
 .blog-hero-home {
-	background-image: url(img/blog/blog-home.jpg);
 	width: 100%;
 	height: 40vh;
 	background-position: center;
@@ -2106,13 +2086,14 @@ footer p {
 }
 
 .blog-home-text {
+	z-index: 100;
 	position: absolute;
 	left: 0;
 	top: 65%;
 	right: 0;
 	text-align: center;
 	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%)
+	transform: translateY(-50%);
 }
 
 .blog-home-text h1 {
@@ -2210,7 +2191,6 @@ footer p {
 
 .team-banner-text h1 {
 	color: #fff;
-	text-transform: capitalize;
 	font-weight: 700;
 	font-size: 40px;
 }
@@ -2238,7 +2218,6 @@ footer p {
 .person-name h4 {
 	font-weight: 700;
 	color: #323657;
-	text-transform: capitalize;
 	font-size: 22px;
 	margin: 5px 0;
 }
@@ -2246,7 +2225,6 @@ footer p {
 .person-name p {
 	color: #7D7D7D;
 	font-size: 18px;
-	text-transform: capitalize;
 }
 
 .team-content {
@@ -2346,7 +2324,6 @@ footer p {
 
 .contact-banner-text h1 {
 	color: #fff;
-	text-transform: capitalize;
 	font-weight: 700;
 	font-size: 40px;
 }
@@ -2446,7 +2423,6 @@ footer p {
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
 	font-weight: 700;
-	text-transform: capitalize;
 	font-size: 22px
 }
 
@@ -2521,7 +2497,6 @@ footer p {
 	color: #fff;
 	border: none;
 	padding: 12px 42px;
-	text-transform: capitalize;
 	font-weight: 700;
 	cursor: pointer;
 	-webkit-transition: .5s;
@@ -2578,7 +2553,6 @@ footer p {
 
 .portfolio-hero-text h1 {
 	color: #fff;
-	text-transform: capitalize;
 	font-weight: 700;
 	font-size: 40px;
 }
@@ -2612,7 +2586,6 @@ footer p {
 
 .portfolio-titile h4 {
 	font-size: 18px;
-	text-transform: capitalize;
 	color: #323657;
 	font-weight: 700;
 	margin-top: 13px;
@@ -2644,7 +2617,6 @@ footer p {
 	background-clip: border-box;
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
-	text-transform: capitalize;
 	font-size: 17px;
 	font-weight: 700;
 	margin-top: 10px;
@@ -2683,7 +2655,6 @@ footer p {
 	display: inline-block;
 	padding: 8px 0px;
 	color: #000;
-	text-transform: capitalize;
 }
 
 .portfolio-filter li.active:before {
@@ -2725,7 +2696,6 @@ footer p {
 .project-description h3 {
 	font-size: 23px;
 	font-weight: 600;
-	text-transform: capitalize;
 }
 
 .project-description p {
@@ -2739,7 +2709,6 @@ footer p {
 .project-name h3 {
 	font-size: 23px;
 	font-weight: 600;
-	text-transform: capitalize;
 	padding-top: 20px
 }
 
@@ -2752,14 +2721,12 @@ footer p {
 	font-size: 23px;
 	font-weight: 600;
 	margin-bottom: 15px;
-	text-transform: capitalize;
 }
 
 .project-info h4 {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 10px;
-	text-transform: capitalize;
 }
 
 .project-info h4 span {
@@ -2785,7 +2752,6 @@ footer p {
 .project-technology h3 {
 	font-size: 23px;
 	font-weight: 600;
-	text-transform: capitalize;
 }
 
 .project-technology {
@@ -2796,7 +2762,6 @@ footer p {
 
 .project-technology ul li {
 	display: inline-block;
-	text-transform: capitalize;
 	font-size: 16px;
 	margin: 5px;
 	background-color: #fff;
@@ -2875,7 +2840,6 @@ footer p {
 
 .about-hero-text h1 {
 	color: #fff;
-	text-transform: capitalize;
 	font-weight: 700;
 	font-size: 40px;
 }
@@ -3073,7 +3037,6 @@ footer p {
 .about-section-title h4 {
 	font-size: 23px;
 	font-weight: 600;
-	text-transform: capitalize;
 	margin-bottom: 15px;
 }
 
@@ -3152,7 +3115,6 @@ footer p {
 .callto-action-btn button {
 	background: transparent;
 	border-radius: 68px;
-	text-transform: capitalize;
 	padding: 12px 30px;
 	margin-top: -5px;
 	display: inline-block;
@@ -3190,13 +3152,13 @@ footer p {
 #video_background {
     position: absolute;
     right: 0;
-    top: -50%;
+    top: -60%;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
+    width: 100%;
+    z-index: 1;
     max-width: 100%;
+    height: auto;
 }
 
 .comment-moderate {
@@ -3256,3 +3218,151 @@ footer p {
 	text-align: center;
 	margin-top: 30px;
 }
+
+.admin-panel button {
+	transition: all 0.5s;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.admin-panel button:hover {
+	color: white;
+	background-color: #222;
+}
+
+.admin-panel .del {
+	width: 40px;
+	transition: all 0.5s;
+}
+
+.admin-panel .del:hover {
+	transform: scale(1.2);
+}
+
+.admin-panel .article-img {
+	width: 100px;
+}
+
+.admin-panel select {
+	width: 100px;
+}
+.admin-panel .button-pagination {
+	padding: 3px 10px;
+	border-radius: none;
+}
+
+.admin-panel .next-previous-page {
+	margin-top: 0;
+}
+
+.admin-panel .pagination {
+	justify-content: left;
+}
+
+#article-add {
+	width: 100%;
+}
+
+#article-add input[type="text"],
+#article-add textarea {
+	width: 100%;
+    font-size: 20px;
+    line-height: 30px;
+    border: 1px solid grey;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+#article-add textarea {
+	height: 500px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+#article-add textarea[name="css"] {
+	height: 350px;
+}
+
+#article-add img {
+	width: 100%;
+}
+
+#article-add .message-error {
+	color: crimson;
+}
+
+#article-add select[name="template"] {
+	width: 100%;
+	line-height: 24px;
+	font-size: 18px;
+}
+
+blockquote {
+    border-left: 2px solid #ccc;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+.comment-status {
+    padding: 5px;
+    font-size: 15px;
+    color: #363636;
+    display: inline-block;
+    border: 1px solid #ebebeb;
+    cursor: pointer;
+}
+
+.comment-status:hover {
+    background: linear-gradient(252.62deg, #48D6F2 8.92%, #84FC6A 96.59%);
+    border: 1px solid transparent;
+}
+
+
+form.user-status-change {
+	width: 130px;
+}
+
+form.user-status-change select {
+	width: 90px;
+}
+
+form#settings {
+	width: 100%;
+}
+
+form#settings input[type="text"] {
+	margin-bottom: 20px;
+	width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid grey;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+form#settings textarea {
+	width: 100%;
+	padding: 5px 15px;
+	font-size: 14px;
+}
+
+.admin-panel .center table {
+	width: 100%;
+
+}
+
+form#settings input[type="submit"] {
+	margin-top: 20px;
+}
+
+.admin-panel h2 {
+	font-size: 2rem;
+}
+
+.admin-panel .center table th,
+.admin-panel .center table td {
+	font-size: 100%;
+}
+

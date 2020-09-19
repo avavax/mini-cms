@@ -12,6 +12,8 @@ class Users extends Model
 
     protected $table = 'users';
 
+    private $errors = [];
+
     public static function getCurrentUser(): ?object
     {
         $token = $_SESSION['token'] ?? $_COOKIE['token'] ?? null;
@@ -25,28 +27,46 @@ class Users extends Model
         return null;
     }
 
-    public static function checkUserData(array $request): array
+    public function checkData(array $request, $update = false): Users
     {
-        $errors = [];
-        if ($request['password'] != $request['passwordRepeat']) {
-            $errors['passwordRepeat'] = 'Пароли должны совпадать';
-        }
         if (mb_strlen($request['name']) < self::MIN_USER_NAME_LENGTH) {
-            $errors['name'] = 'Имя должно быть не короче ' . self::MIN_USER_NAME_LENGTH . ' символов';
+            $this->errors['name'] = 'Имя должно быть не короче ' . self::MIN_USER_NAME_LENGTH . ' символов';
         }
         if (mb_strlen($request['name']) > self::MAX_USER_NAME_LENGTH) {
-            $errors['name'] = 'Имя должно быть не длиннее ' . self::MAX_USER_NAME_LENGTH . ' символов';
-        }
-        if (mb_strlen($request['password']) < self::MIN_USER_PASSWORD_LENGTH) {
-            $errors['password'] = 'Пароль должен быть не менее ' . self::MIN_USER_PASSWORD_LENGTH . ' символов';
+            $this->errors['name'] = 'Имя должно быть не длиннее ' . self::MAX_USER_NAME_LENGTH . ' символов';
         }
         if (!check_email($request['email'])) {
-            $errors['email'] = 'Некорректная форма email';
+            $this->errors['email'] = 'Некорректная форма email';
         }
-        if (self::where('email', $request['email'])->first()) {
-            $errors['email'] = 'Пользователь с таким email уже существует';
+        if (!$update) {
+            if (self::where('email', $request['email'])->first()) {
+                $this->errors['email'] = 'Пользователь с таким email уже существует';
+            }
         }
+        return $this;
+    }
 
-        return $errors;
+    public function checkPassword(array $request): Users
+    {
+        if ($request['password'] != $request['passwordRepeat']) {
+            $this->errors['passwordRepeat'] = 'Пароли должны совпадать';
+        }
+        if ($request['password'] < self::MIN_USER_PASSWORD_LENGTH) {
+            $this->errors['password'] = 'Пароль должен быть не менее ' . self::MIN_USER_PASSWORD_LENGTH . ' символов';
+        }
+        return $this;
+    }
+
+    public function checkAccept(array $request): Users
+    {
+        if (empty($request['agreement'])) {
+            $this->errors['agreement'] = 'Вы должны дать согласие';
+        }
+        return $this;
+    }
+
+    public function buildErrorMsg(): array
+    {
+        return $this->errors;
     }
 }

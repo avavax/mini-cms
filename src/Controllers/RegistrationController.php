@@ -16,19 +16,17 @@ class RegistrationController
 
     public function index(): View
     {
-        $user = Users::getCurrentUser();
         $params = [
             'title' => 'Форма регистрации',
             'data' => $this->data,
             'errors' => $this->errors,
-            'userRole' => $user ? $user->status : null,
         ];
         return new View('registration', $params);
     }
 
     public function register()
     {
-        $request = Request::getPOSTParams(['email', 'name', 'password', 'passwordRepeat']);
+        $request = Request::getPOSTParams(['email', 'name', 'password', 'passwordRepeat', 'agreement']);
 
         $this->data = [
             'email' => $request['email'],
@@ -37,7 +35,11 @@ class RegistrationController
             'passwordRepeat' => $request['passwordRepeat'],
         ];
 
-        $this->errors = Users::checkUserData($request);
+        $this->errors = (new Users())
+            ->checkData($request)
+            ->checkPassword($request)
+            ->checkAccept($request)
+            ->buildErrorMsg();
 
         if (empty($this->errors)) {
 
@@ -55,7 +57,6 @@ class RegistrationController
             $params = [
                 'title' => 'Сообщение сайта',
                 'message' => 'Вы вошли как ' . $request['name'],
-                'userRole' => 'user',
             ];
             return new View('message', $params);
         }

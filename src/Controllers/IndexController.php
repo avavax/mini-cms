@@ -13,7 +13,7 @@ use App\Request,
 
 class IndexController
 {
-    private const ARTICLES_ON_PAGE = 3;
+    private const ARTICLES_ON_PAGE = 6;
 
     public function index($num = 1): View
     {
@@ -21,9 +21,10 @@ class IndexController
             throw new NotFoundException('Запрашиваемая страница не найдена или удалена', 404);
         }
 
-        $articles = Articles::all()
-            ->skip(($num - 1) * self::ARTICLES_ON_PAGE)
-            ->take(self::ARTICLES_ON_PAGE);
+        $articles = Articles::skip(($num - 1) * self::ARTICLES_ON_PAGE)
+            ->take(self::ARTICLES_ON_PAGE)
+            ->latest('id')
+            ->get();
 
         if ($articles && $articles->isEmpty()) {
             throw new NotFoundException('Запрашиваемая страница не найдена или удалена', 404);
@@ -50,7 +51,6 @@ class IndexController
                 'slug' => '/blog/',
             ],
             'subscribeForm' => $this->isShowSubscribeForm($user),
-            'userRole' => $user ? $user->status : null,
         ];
         return new View('index', $params);
     }

@@ -6,9 +6,11 @@
 			<div class="row">
 				<div class="offset-xl-2 offset-lg-2 col-xl-8 col-lg-8 col-md-12 col-sm-12">
 					<!--=============Left Side Bar==============-->
-					<div class="left-side">
+					<div class="center-article">
 						<div class="blog-inner">
+						<?php if ($img): ?>
 							<img src="<?= ASSETS_DIR ?>img/blog/<?= $img ?>" alt="<?= $img ?>">
+						<?php endif; ?>
 						</div>
 						<div class="blog-post-heading">
 							<h1><?= $title ?></h1>
@@ -17,17 +19,6 @@
 						<!--single blog content-->
 						<div class="blog-body-content">
 							<?= $content ?>
-
-							<!--single blog social share-->
-							<div class="blog-share">
-								<h4>Поделиться в соцсетях</h4>
-								<ul>
-									<li><a class="footer-socials" href="#"><i class="fab fa-facebook"></i></a></li>
-									<li><a class="footer-socials" href="#"><i class="fab fa-instagram"></i></a></li>
-									<li><a class="footer-socials" href="#"><i class="fab fa-twitter"></i></a></li>
-									<li><a class="footer-socials" href="#"><i class="fab fa-youtube"></i></a></li>
-								</ul>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -39,8 +30,7 @@
 				<div class="offset-xl-2 offset-lg-2 col-xl-6 col-lg-6 col-md-6 col-sm-12">
 					<div class="blog-comments-area">
 						<div class="comment-heading">
-							<h4><?= empty($comments) ? 'Комментариев пока нет' : 'Комментарии' ?>
-							</h4>
+							<h4>Комментарии</h4>
 						</div>
 						<!--single blog coment text-->
 						<div class="commnet-text">

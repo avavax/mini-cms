@@ -32,7 +32,7 @@ class ArticleController
             'date' => $article->created_at->format('Y-m-d'),
             'img' => $article->img,
             'id' => $article->id,
-            'userRole' => $user ? $user->status : null,
+            //'userRole' => $user ? $user->status : null,
             'comments' => (new Comments())->getCommentForArticle((int)$num, $user),
         ];
         return new View('single', $params);

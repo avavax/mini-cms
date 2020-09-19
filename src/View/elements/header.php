@@ -1,3 +1,11 @@
+<?php
+
+$staticPages = (new App\Models\Pages())->getAllPagesLink();
+$user = App\Models\Users::getCurrentUser();
+$settings = (new App\Models\Settings())->getSettings();
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -6,24 +14,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name=description content="">
-    <meta name=author content="Enventer">
+    <meta name=description content="<?= $settings['description'] ?? '' ?>">
+    <meta name=keywords content="<?= $settings['keywords'] ?? '' ?>">
     <link rel="icon" href="<?= ASSETS_DIR ?>img/favicon.png" type="image/png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= ASSETS_DIR ?>css/bootstrap.min.css">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= ASSETS_DIR ?>css/bootstrap.min.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap" rel="stylesheet">
     <!-- Meanmenu css -->
     <link rel="stylesheet" href="<?= ASSETS_DIR ?>css/meanmenu.css">
     <!-- Animation CSS -->
     <link href="<?= ASSETS_DIR ?>css/aos.min.css" rel="stylesheet">
-    <!-- Slick Carousel CSS -->
-    <link href="<?= ASSETS_DIR ?>css/slick.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="<?= ASSETS_DIR ?>css/style.css">
     <link rel="stylesheet" href="<?= ASSETS_DIR ?>css/responsive.css">
+    <?php if (isset($additionCSS)): ?>
+        <style><?= $additionCSS ?></style>
+    <?php endif; ?>
 </head>
 
 <body>
@@ -35,11 +44,11 @@
     <!--  Preloader Start
 ========================-->
 
-    <!--<div id='preloader'>
+    <div id='preloader'>
         <div id='status'>
             <img src='<?= ASSETS_DIR ?>img/loading.gif' alt='LOADING....!!!!!' />
         </div>
-    </div>-->
+    </div>
     <!--=========== Main Header Area ===============-->
     <header id="home">
         <div class="main-navigation-1">
@@ -59,15 +68,12 @@
                                     <li>
                                         <a href="/">Главная </a>
                                     </li>
-                                    <li>
-                                        <a href="/about">О нас</a>
-                                    </li>
                                     <!-- dropdown menu-area-->
                                     <li>
                                         <a class="current" href="#" onclick="return false">Пользователь <i class="fas fa-angle-down"></i>
                                         </a>
                                         <ul class="dropdown">
-                                            <?php if (isset($userRole)) : ?>
+                                            <?php if ($user) : ?>
                                                 <li><a href="/logout">Выход</a></li>
                                                 <li><a href="/registration">Регистрация</a></li>
                                                 <li><a href="/cabinet">Личный кабинет</a></li>
@@ -77,35 +83,23 @@
                                             <?php endif; ?>
                                         </ul>
                                     </li>
-                                    <!-- dropdown menu-area-->
-                                    <li>
-                                        <a class="current" href="#" onclick="return false">Меню сайта<i class="fas fa-angle-down"></i>
-                                        </a>
-                                        <ul class="dropdown">
-                                            <li><a href="/page">Соглашение</a></li>
-                                            <li><a href="/page">Вторая страница</a></li>
-                                            <li><a href="/page">Третья страница</a></li>
-                                        </ul>
-                                    </li>
+                                    <?php if ($staticPages): ?>
+                                        <!-- dropdown menu-area-->
+                                        <li>
+                                            <a class="current" href="#" onclick="return false">Страницы<i class="fas fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown">
+                                                <?php foreach ($staticPages as $pageId => $pageTitle): ?>
+                                                    <li><a href="/page/<?= $pageId ?>"><?= $pageTitle ?></a></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </li>
+                                    <?php endif; ?>
                                 </ul>
                             </nav>
                         </div>
                         <!-- mobile menu-->
                         <div class="mobile-menu"></div>
-                        <!--Search-->
-                        <div class="search-box-area">
-                            <div id="search" class="fade">
-                                <a href="#" class="close-btn" id="close-search">
-                                    <em class="fa fa-times"></em>
-                                </a>
-                                <input placeholder="what are you looking for?" id="searchbox" type="search" />
-                            </div>
-                            <div class="search-icon-area">
-                                <a href='#search'>
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
