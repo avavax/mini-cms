@@ -22,9 +22,12 @@ class Pages extends Model
 
     public function getTemplateName(string $name): string
     {
-        $template = $name . '.php';
+        /*$template = $name . '.php';
         $filepath = $_SERVER['DOCUMENT_ROOT'] . TEMPLATES_DIR . $template;
-        return file_exists($filepath) ? $template : self::DEFAULT_TEMPLATE;
+        return file_exists($filepath) ? $template : self::DEFAULT_TEMPLATE;*/
+
+        $filepath = $_SERVER['DOCUMENT_ROOT'] . TEMPLATES_DIR . $name . '.php';
+        return file_exists($filepath) ? $name : self::DEFAULT_TEMPLATE;
     }
 
     public function getTemplateList(): array

@@ -37,7 +37,7 @@ const newComment = comment => {
     return `
         <div class="single-comment">
             <div class="image-box">
-                <img src="/src/assets/img/avatars/${img}" alt="avatar">
+                <img src="/src/Assets/img/avatars/${img}" alt="avatar">
             </div>
             <div class="text-box">
                 <p><strong>${comment.username} </strong> / ${comment.created_at}</p>

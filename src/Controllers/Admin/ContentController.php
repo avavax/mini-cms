@@ -76,15 +76,15 @@ abstract class ContentController implements CRUDInterface, ListableInterface
             }
         }
 
-        if (empty($this->errors)) {
-            if (isset($saveImgResult)) {
-                // With new image
-                $this->data = $this->contentDataPrepare($request, $saveImgResult['name']);
-            } else {
-                // Without new image
-                $this->data = $this->contentDataPrepare($request, $request['oldImg']);
-            }
+        if (isset($saveImgResult)) {
+            // With new image
+            $this->data = $this->contentDataPrepare($request, $saveImgResult['name']);
+        } else {
+            // Without new image
+            $this->data = $this->contentDataPrepare($request, $request['oldImg']);
+        }
 
+        if (empty($this->errors)) {
             if (empty($this->data['id'])) {
                 // Create new
                $this->data['id'] = $this->contentSave();

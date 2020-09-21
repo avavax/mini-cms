@@ -17,7 +17,7 @@
 							<form action="/registration" method="POST" id="user-registration">
 								<div class="row">
 									<div class="col-md-6 col-sm-12">
-										<input type="text" placeholder="Имя" name="name" value="<?= $data['name'] ?? '' ?>" required>
+										<input type="text" placeholder="Ваше имя или псевдоним" name="name" value="<?= $data['name'] ?? '' ?>" required>
 										<p><?= $errors['name'] ?? '' ?></p>
 									</div>
 									<div class="col-md-6 col-sm-12">
@@ -34,7 +34,7 @@
 									</div>
 									<div class="col-md-12 col-sm-12 mt-md-4 text-center">
 										<input type="checkbox" name="agreement" id="agreement" value="yes">
-										<label for="agreement">Я ознакомился с условиями использования сайта и подтверждаю своё согласие</label>
+										<label for="agreement">Я ознакомился с <a href="/page/1" target="_blank">условиями использования</a> сайта и подтверждаю своё согласие</label>
 										<p><?= $errors['agreement'] ?? '' ?></p>
 									</div>
 								</div>

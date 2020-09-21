@@ -63,6 +63,4 @@
     </div>
 </div>
 
-<?php //var_dump($data); ?>
-
 <?php include $_SERVER['DOCUMENT_ROOT'] . VIEW_DIR . 'elements/admin_footer.php' ?>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Users extends Model
 {
-    const MIN_USER_NAME_LENGTH = 5;
+    const MIN_USER_NAME_LENGTH = 2;
     const MAX_USER_NAME_LENGTH = 40;
     const MIN_USER_PASSWORD_LENGTH = 5;
 
@@ -51,7 +51,7 @@ class Users extends Model
         if ($request['password'] != $request['passwordRepeat']) {
             $this->errors['passwordRepeat'] = 'Пароли должны совпадать';
         }
-        if ($request['password'] < self::MIN_USER_PASSWORD_LENGTH) {
+        if (mb_strlen($request['password']) < self::MIN_USER_PASSWORD_LENGTH) {
             $this->errors['password'] = 'Пароль должен быть не менее ' . self::MIN_USER_PASSWORD_LENGTH . ' символов';
         }
         return $this;
