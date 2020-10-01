@@ -1,2 +1,4 @@
 /vendor/
+/src/log.txt
+/src/Assets/video/
 composer.phar

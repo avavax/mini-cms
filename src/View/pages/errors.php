@@ -1,10 +1,19 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . VIEW_DIR . 'elements/header.php' ?>
 
-<div class="content">
-    <div class="container mt-5 mb-5">
-        <h1>Ошибка <?= $error ?></h1>
-        <h2><?= $message ?></h2>
-    </div>
-</div>
+	<!-- =========404 Image area=========== -->
+	<div class="error-page-area">
+		<div class="container">
+			<div class="row">
+				<!--404 text image-->
+				<div class="col-xl-12">
+					<div class="error-text">
+					<!--<img src="<?= VIEW_DIR . '../Assets/'?>img/404.png" alt="">-->
+						<h2><?= 'Error ' . $error . ' / ' . $message ?></h2>
+						<a href="/">На главную</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . VIEW_DIR . 'elements/footer.php' ?>
